@@ -1,0 +1,14 @@
+@CHARSET "UTF-8";
+
+body
+{
+  margin: 0 auto;
+  padding: 0;
+  color: #242424;
+  background-color: #E8E8E8;
+  /* background-image: url('../images/page_t.jpg'); */
+  background-repeat: repeat;
+  background-attachment: scroll;
+  background-position: top left;
+  background:#FFF url(../images/bg.png) repeat-x 0 0;
+}

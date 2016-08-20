@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="OnlineChat"
+  id="myeclipse.1471437657259"
+  context-root="/OnlineChat"
+  j2ee-spec="6.0"
+  archive="OnlineChat.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
