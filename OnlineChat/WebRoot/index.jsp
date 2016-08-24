@@ -1,28 +1,201 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="zh-CN">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="resources/js/cdn_djl.js" type="text/javascript"
+	async=""></script>
+<script type="text/javascript">
+        var ua = navigator.userAgent.toLowerCase(),
+            toFixedVersion = function(ver, floatLength){
+                ver= (""+ver).replace(/_/g,".");
+                floatLength = floatLength || 1;
+                ver = String(ver).split(".");
+                ver = ver[0] + "." + (ver[1] || "0");
+                ver = Number(ver).toFixed(floatLength);
+                return ver;
+            };
 
-    <title>主界面</title>
+        var s = ua.match(/msie ([\d.]+)/);
 
-    <!-- Bootstrap core CSS -->
-    <link href="resources/css/bootstrap.min.css" rel="stylesheet">
-    
-    <link href="resources/css/styles.css">
-    
-    <!-- Custom styles for this template -->
-    <link href="resources/signin.css" rel="stylesheet">
-    
-  </head>
+        if(s && (toFixedVersion(s[1]) <= 8 || document.documentMode <= 8)){
+            window.location.href = "webqq.html";
+        }
+    </script>
 
-  <body>
-  	<label>当前登录用户：${user.name}</label>
-  </body>
+    <style type="text/css">
+body {
+	font-family: 'Lucida Grande', 'Trebuchet MS', 'Hiragino Sans GB',
+		'Segoe UI Light', 'Segoe UI', 'Microsoft Jhenghei', '微软雅黑', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	color: #666666;
+}
+
+a {
+	outline: none;
+}
+
+img {
+	border: 0;
+}
+
+.title {
+	font-size: 60px;
+	text-align: center;
+	margin-top: 80px;
+}
+
+.title .recommend {
+	font-size: 14px;
+}
+
+.wording {
+	margin-top: 50px;
+	text-align: center;
+	line-height: 2em;
+}
+
+.container {
+	text-align: center;
+}
+
+.select_wrap {
+	width: 400px;
+	height: 280px;
+	margin: 50px auto 0;
+	overflow: hidden;
+}
+
+.webQQ_wrap {
+	width: 240px;
+	text-align: center;
+	margin: 60px auto 0;
+}
+
+.smartQQ_wrap {
+	width: 140px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.webQQ_wrap img,.smartQQ_wrap img {
+	height: 95px;
+}
+
+.webQQ_wrap img {
+	height: 16px;
+}
+
+.webQQ_wrap .link,.smartQQ_wrap .link {
+	margin-top: 10px;
+	padding: 2px 15px;
+	font-size: 20px;
+	color: rgb(95, 183, 233);
+	-webkit-transition: background 250ms ease-in, color 250ms ease-in;
+	border-radius: 6px;
+	text-decoration: none;
+}
+
+.smartQQ_wrap .link {
+	display: block;
+}
+
+.webQQ_wrap .link,.msg_wrap .link {
+	text-decoration: none;
+	color: rgb(95, 183, 233);
+	font-size: 14px;
+}
+
+.webQQ_wrap .link:hover,.msg_wrap .link:hover {
+	color: rgb(249, 136, 11);
+}
+
+.msg_wrap {
+	margin-top: 15px;
+}
+
+.msg_wrap .link {
+	font-size: 12px;
+	color: #333;
+}
+
+.smartQQ_wrap .link:hover {
+	color: #fff;
+	background: #BBD631;
+}
+
+.smartQQ_wrap:hover .link {
+	color: #fff;
+	background: #BBD631;
+}
+
+.webQQ_wrap .link {
+	font-size: 12px;
+	padding: 0;
+}
+
+.webQQ_wrap .link a {
+	position: relative;
+	top: 4px;
+}
+
+.copyright {
+	text-align: center;
+	margin-top: 50px;
+	font-size: 12px;
+	font-family: tahoma;
+}
+
+.first-msg {
+	font-size: 14px;
+}
+
+.date-msg {
+	font-size: 25px;
+	font-family: 'Segoe UI Light', 'Segoe UI', 'Microsoft Jhenghei', '微软雅黑',
+		sans-serif;
+	margin: 10px 0;
+}
+
+.link-area {
+	margin-top: 10px;
+}
+
+.smartQQ-text {
+	font-size: 20px;
+	font-family: 'Segoe UI Light', 'Segoe UI', 'Microsoft Jhenghei', '微软雅黑',
+		sans-serif;
+}
+</style>
+<script src="resources/js/cdn_dianjiliu.js"></script>
+</head>
+    <body>
+        <div class="container">
+            <div class="title">WebQQ</div>
+            <div class="wording">
+                <div class="first-msg">给你更清爽的全新体验</div>
+            </div>
+            <div id="select_wrap" class="select_wrap">
+                <div class="smartQQ_wrap">
+                    <a class="img_wrap" href="#"><img
+					src="resources/images/alloylogo.png">
+				</a>
+                    <a class="link" href="http://w.qq.com/">立即体验</a>
+                </div>
+
+            </div>
+
+            <div class="copyright"> Copyright©2014 Tencent. All Rights Reserved. </div>
+
+        </div>
+    <script language="javascript"
+		src="resources/js/tcss.ping.js"></script>
+    <script language="javascript">
+    if(typeof(pgvMain) == 'function')
+    pgvMain();
+    </script>
+</body>
 </html>
+
