@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -96,12 +97,23 @@ public class UserServlet extends HttpServlet {
 		UserInfoBean user = service.login(useremail, password);
 		try {
 			if (user != null) {
+				
+				// 判断是否选择了记住我
+				String remember = request.getParameter("remember");
+				if ("1".equals(remember)) {
+					Cookie cookie = new Cookie("useremail", useremail);
+					// 设置cookie的时间
+					cookie.setMaxAge(3*24*3600);
+					// 加入cookie并且发给客户端
+					response.addCookie(cookie);
+				}
+				
 				// 登录成功的情况
 				// 登录成功后，将用户存储到session中.
 				request.getSession().invalidate();
 				request.getSession().setAttribute("user", user);
 				// 将界面推送到index.jsp
-				response.sendRedirect(request.getContextPath() + "/index.jsp");
+				response.sendRedirect(request.getContextPath() + "/chat.jsp");
 				return;
 			} else {
 				// 登录失败的情况

@@ -1,5 +1,14 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+	Cookie[] cookies = request.getCookies();
+	for (Cookie c : cookies) {
+		if ("useremail".equals(c.getName())) {
+			pageContext.setAttribute("useremail", c.getValue());
+			break;
+		}
+	}
+ %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="zh-CN">
   <head>
@@ -33,12 +42,12 @@
         <h2 class="form-signin-heading">用户登录</h2>
         <label><font color='red' >${requestScope["login.message"]}</font></label>
         <label for="inputEmail" class="sr-only">邮箱地址</label>
-        <input type="email" id="inputEmail" name="useremail" class="form-control" placeholder="邮箱地址" required autofocus>
+        <input type="email" id="inputEmail" name="useremail" class="form-control" placeholder="邮箱地址" value="${ useremail }" required autofocus>
         <label for="inputPassword" class="sr-only">密码</label>
         <input type="password" name="password" id="inputPassword" class="form-control" placeholder="密码" required>
         <div class="checkbox">
           <label>
-            <input type="checkbox" value="remember-me"> 记住邮箱
+            <input type="checkbox" value="1" name = "remember"> 记住邮箱
           </label>
           <label>
             <a href="regist.jsp">没有账号？点我注册</a>

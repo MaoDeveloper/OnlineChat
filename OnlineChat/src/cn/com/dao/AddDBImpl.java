@@ -14,7 +14,7 @@ public class AddDBImpl implements AddDBInf {
 		// TODO Auto-generated method stub
 		boolean bool = false;
 		// 设置sql语句
-		String sql = "insert into userinfo values(seq_userinfo.nextval,?,?,?,0)";
+		String sql = "insert into userinfo values(NULL,?,?,?,0)";
 
 		// 创建数据库
 		Connection conn = DBUtil.getConnection();
