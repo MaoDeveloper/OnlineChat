@@ -2,6 +2,7 @@ package cn.com.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
@@ -42,6 +43,16 @@ public class UserServlet extends HttpServlet {
 	 */
 	public void regist(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
+
+		// 设置编码
+		try {
+			request.setCharacterEncoding("utf-8");
+		} catch (UnsupportedEncodingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		response.setCharacterEncoding("utf-8");
+
 		// 获取界面提交上来的数据
 		String name = request.getParameter("username");
 		String email = request.getParameter("useremail");
@@ -87,6 +98,15 @@ public class UserServlet extends HttpServlet {
 	 */
 	public void Login(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
+		// 设置编码
+		try {
+			request.setCharacterEncoding("utf-8");
+		} catch (UnsupportedEncodingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		response.setCharacterEncoding("utf-8");
+
 		// 获取login.jsp提交上来的数据
 		String useremail = request.getParameter("useremail");
 		String password = request.getParameter("password");
@@ -97,7 +117,7 @@ public class UserServlet extends HttpServlet {
 		UserInfoBean user = service.login(useremail, password);
 		try {
 			if (user != null) {
-				
+
 				// 判断是否选择了记住我
 				String remember = request.getParameter("remember");
 				if ("1".equals(remember)) {
@@ -107,7 +127,7 @@ public class UserServlet extends HttpServlet {
 					// 加入cookie并且发给客户端
 					response.addCookie(cookie);
 				}
-				
+
 				// 登录成功的情况
 				// 登录成功后，将用户存储到session中.
 				request.getSession().invalidate();

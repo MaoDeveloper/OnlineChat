@@ -33,8 +33,14 @@ public abstract class DBUtil {
 	static {
 		pop = new Properties();
 		
-		//String path = DBUtil.class.getClassLoader().getResource("").toURI().getPath();
-		String path = "D:/Program Files/tomcat/webapps/OnlineChat/WEB-INF/classes/";
+		String path = null;
+		try {
+			path = DBUtil.class.getClassLoader().getResource("").toURI().getPath();
+		} catch (URISyntaxException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		//String path = "/var/local/tomcat/webapps/OnlineChat/WEB-INF/classes/";
 		
 		try {
 			pop.load(new FileReader(new File(path + ACTIONPATH)));
