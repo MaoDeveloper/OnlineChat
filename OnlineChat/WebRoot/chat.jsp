@@ -11,6 +11,6 @@
     <title>OC</title>
 </head>
 <body>
-	<h1>欢迎您<font color="red">${user.name}</font>,感谢您关注OC在线聊天，我们正在努力完善中...</h1>
+	<h1>欢迎您<font color="red">${user.name}</font>,感谢您关注OC在线聊天，我们正在努力完善中..........</h1>
 </body>
 </html>
